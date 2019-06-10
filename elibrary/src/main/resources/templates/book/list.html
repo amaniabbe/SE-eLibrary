@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html layout:decorator="shared/homelayout"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<th:block layout:fragment="header">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/booklist.css}" />
+	</th:block>
+	
+	<th:block layout:fragment="content">
+		<h2>List of books currently in our catalogue</h2> <br/>
+		<a href="/book">Create a book</a>
+		<a href="/" id="linkBackHome" >Back to home</a><br/><br/>
+		<table class="table table-striped">
+			<thead>
+                <th>#</th>
+				<th>Title</th>
+				<th>Published date</th>
+				<th>Fee</th>
+				<th>Actions</th>
+			</thead>
+			<tbody>
+				<tr th:each="book : ${books}">
+                    <td th:text="${book.bookId}"></td>
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.datePublished}"></td>
+					<td th:text="${book.fee}"></td>
+					<td>
+						<a th:href="@{'/book/' + ${book.bookId}}">Edit</a>&nbsp;
+						<a th:href="@{'/book/delete/' + ${book.bookId}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</th:block>
+	
+	<th:block layout:fragment="footer">
+	</th:block>
+	
+</body>
+</html>

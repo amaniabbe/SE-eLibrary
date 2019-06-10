@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Book Info</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" th:href="@{/css/homelayout.css}" />
+	<th:block layout:fragment="header"></th:block>	
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark " id="menu">
+  <a class="navbar-brand" href="/">eLibrary:::a basic demo webapp using Spring Boot</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/books">Browse Book</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+	<div id="mainpanel">
+		<th:block  layout:fragment="content"></th:block>
+	</div>
+		
+	
+  <script src="/js/jquery-3.3.1.min.js"></script>
+  	<script src="/js/bootstrap.bundle.min.js"></script>
+	<th:block layout:fragment="footer"></th:block>	
+</body>
+</html>
